@@ -1,7 +1,7 @@
 var articles = [];
 
 function Article (opts) {
-  // TODO: Use the object passed in to complete this constructor function:
+  // TODO: done/ Use the object passed in to complete this constructor function:
   // Save ALL the properties of `opts` into `this`.
   this.title = opts.title;
   this.category = opts.category;
@@ -23,7 +23,9 @@ Article.prototype.toHtml = function() {
     3. article title
     4. article body, and
     5. publication date. */
-
+  $newArticle.find('a').html(this.author);
+  $newArticle.find('a').attr('href', this.authorUrl);
+  
   $newArticle.find('time[pubdate]').attr('title', this.publishedOn);
   $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
 
